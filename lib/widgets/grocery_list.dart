@@ -25,8 +25,8 @@ class _GroceryListState extends State<GroceryList> {
   }
 
   void _loadItems() async {
-    final url = Uri.https(
-        'flutter-prep-default-rtdb.firebaseio.com', 'shopping-list.json');
+    final url = Uri.parse(
+        'https://shopping-list-gsk-default-rtdb.asia-southeast1.firebasedatabase.app/sl.json');
 
     try {
       final response = await http.get(url);
@@ -93,9 +93,8 @@ class _GroceryListState extends State<GroceryList> {
       _groceryItems.remove(item);
     });
 
-    final url = Uri.https(
-        'console.firebase.google.com/u/0/project/shopping-list-gsk/database/shopping-list-gsk-default-rtdb/data/~2F',
-        'shopping-list/${item.id}.json');
+    final url = Uri.parse(
+        'https://shopping-list-gsk-default-rtdb.asia-southeast1.firebasedatabase.app/sl/${item.id}.json');
 
     final response = await http.delete(url);
 

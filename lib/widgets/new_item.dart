@@ -28,9 +28,8 @@ class _NewItemState extends State<NewItem> {
       setState(() {
         _isSending = true;
       });
-      final url = Uri.https(
-          'console.firebase.google.com/u/0/project/shopping-list-gsk/database/shopping-list-gsk-default-rtdb/data/~2F',
-          'shopping-list.json');
+      final url = Uri.parse(
+          'https://shopping-list-gsk-default-rtdb.asia-southeast1.firebasedatabase.app/sl.json');
       final response = await http.post(
         url,
         headers: {
